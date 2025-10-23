@@ -1,0 +1,875 @@
+/**
+ * Template Front Page Styles
+ *
+ * @package Postali Child
+ * @author Postali LLC
+**/
+
+.home {
+    font-family: "Inter", sans-serif;
+    
+    p#breadcrumbs {
+        display:none;
+    }
+
+    p.subhead {
+        font-size: 28px;
+    }
+
+    h2 {
+        margin-top: 0 !important;
+    }
+
+    p,
+    h2,
+    h3,
+    h4 {
+        span {
+            color:$green;
+        }
+    }
+
+    .white,
+    .blue {
+        .annotation {
+            width: 100%;
+            display: inline-flex;
+            justify-content: flex-end;
+            margin-bottom: 50px;
+    
+            &::before {
+                width: calc(100% - 120px);
+                height: 1px;
+                content: "";
+                position: absolute;
+                border-bottom: 1px solid black;
+                top: 24px;
+                z-index: 0;
+                left: 60px;
+
+                @include respond(phone) {
+                    left:30px;
+                }
+            }
+    
+            span {
+                padding: 8px 14px;
+                background: $green;
+                font-size: 14px;
+                border-radius: 50px;
+                font-weight: bold;
+                position: relative;
+                border: 11px solid $white;
+                color:$white;
+            }
+        }
+    }
+
+    .white {
+        background:$white;
+
+        p {
+            a {
+                &:hover {
+                    color:inherit;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    .blue {
+        background:#293c49;
+
+        p,
+        h2,
+        h3,
+        h4 {
+            color:$white;
+        }
+
+        .annotation {    
+            &::before {
+                border-bottom: 1px solid $white;
+            }
+
+            span {
+                border: 11px solid #293c49;
+            }
+        }
+
+        .btn {
+            &:hover {
+                color:#0F1D43 !important;
+                background:$white !important;
+            }
+        }
+    }
+
+    #hp-banner {
+        .container {
+            padding:30px 60px 200px;
+            box-sizing: border-box;
+
+            @include respond(tab-port) {
+                padding:30px 60px;
+            }
+
+            h1 {
+                font-size: 74px;
+                line-height: 105%;
+
+                @include respond(tab-land) {
+                    font-size: 54px;
+                }
+        
+                @include respond(tab-port) {
+                    font-size: 48px;
+                }
+        
+                @include respond(phone) {
+                    font-size: 42px;
+                }
+            }
+            
+            .subhead {
+                color:$white;
+                font-size: 32px;
+
+                @include respond(phone) {
+                    margin-bottom: 30px;
+                }
+            }
+
+            p {
+                max-width: 100%;
+            }
+
+            &.spaced {
+                padding: 0 60px 0;
+                
+                .column-full {
+                    display: flex;
+                    justify-content: space-between;
+                    border-top: 1px solid $white;
+                    padding-top: 30px;
+
+                    @include respond(tab-port) {
+                        flex-wrap: wrap;
+                    }
+
+                    .banner-image {
+                        max-width: 30%;
+
+                        @include respond(tab-port) {
+                            max-width: 100%;
+                            width: 100%;
+                            margin:0 auto 40px;
+
+                            img {
+                                width:100%;
+                            }
+                        }
+                    }
+
+                    .banner-content-block {
+                        width: 65%;
+                        display: flex;
+                        justify-content: space-between;
+                        
+                        @include respond(phone) {
+                            flex-wrap: wrap;
+                            margin-bottom: 60px;
+                        }
+
+                        .banner-content {
+                            max-width: 40%;
+
+                            @include respond(phone) {
+                                max-width: 100%;
+                                width:100%;
+                                margin-bottom: 20px;
+                            }
+
+                            p {
+                                font-size: 20px;
+                                font-weight: bold;
+                                margin-bottom: 15px;
+                            }
+                        }
+
+                        .banner-cta-block {
+                            max-width: 55%;
+                            text-wrap: wrap;
+
+                            @include respond(phone) {
+                                max-width: 100%;
+                                width:100%;
+                            }
+                            
+                            p {
+                                max-width: 100%;
+                                font-weight: bold;
+                                margin-bottom: 15px;
+                                font-size: 20px;
+                            }
+
+                            span.icon-right-arrow {
+                                color: $green;
+                                margin-left: 10px;
+                                vertical-align: middle;
+                                font-weight: bold;
+                            }
+                        }
+
+                        @include respond(tab-port) {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+
+            &.touts {
+                padding: 90px 60px 0;
+                
+                .columns {
+                    display:block;
+
+                    @include homepage-column-33;
+                }
+            }
+        }
+    }
+
+    #hp-about {        
+        p.testimonial-content {
+            margin-bottom: 10px;
+        }
+
+        .hp-video {
+            justify-content: space-evenly;
+            align-items: center;
+
+            .attorney-video {
+                width: auto;
+                margin-left: auto;
+                margin-right: 50px;
+
+                @include respond(tab-land) {
+                    width:50%;
+                    margin-right: 5%;
+                }
+
+                @include respond(tab-port) {
+                    width:70%;
+                    margin: 0 auto 60px;
+                }
+
+                @include respond(phone) {
+                    width:100%;
+                }
+
+                .attorney-headshot {
+                    display: block;
+                    height: 640px;
+                    background-size: cover;
+                    width: 540px;
+                    background-position: center;
+
+                    @include respond(tab-land) {
+                        width:100%;
+                        height:500px;
+                    }
+                }
+
+                .quote-box {
+                    position: absolute;
+                    bottom: 50px;
+                    left: -100px;
+                    padding: 40px;
+                    background: $white;
+                    max-width: 300px;
+                    box-shadow: 0px 0px 30px 10px rgba(0,0,0,0.25);
+
+                    @include respond(tab-land) {
+                        position: relative;
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                        max-width: 100%;
+                    }
+
+                    p {
+                        font-size: 22px;
+                        font-weight: bold;
+                        margin-bottom: 10px;
+
+                        &.runtime {
+                            font-size: 12px !important;
+                            font-weight: normal !important;
+                            text-align: right !important;
+                            margin:10px -20px -30px 0 !important
+                        }
+                    }
+
+                    .play-button {
+                        display: flex;
+                        align-items: center;
+                        font-family: "Inter", sans-serif;
+                        color: #0f1d43;
+                        font-size: 16px;
+                        
+                        a {
+                            color: inherit;
+                        }
+
+                        .icon-tick-down {
+                            transform: rotate(-90deg);
+                            color: black;
+                            width: 40px;
+                            height: 40px;
+                            justify-content: center;
+                            align-items: center;
+                            display: flex;
+                            background: $green;
+                            border-radius: 50%;
+                            margin-right: 20px;
+                        }
+                    }
+                }
+
+                img {
+                    max-height: 600px;
+                    height: 100%;
+                }
+            }
+        }
+
+        .about-cta {
+            @include respond(tab-land) {
+                width:45%;
+            }
+
+            @include respond(tab-port) {
+                width:70%;
+            }
+
+            @include respond(phone) {
+                width:100%;
+            }
+
+            .banner-cta-block {
+                p {
+                    margin-bottom: 15px;
+                    font-weight: bold;
+                    font-size: 18px;
+                }
+
+                .contact-block-right {
+                    margin-top: 15px;
+
+                    p {
+                        margin-bottom: 0;
+                        display: flex;
+                        align-items: center;
+                        font-size: 16px;
+
+                        span {
+                            color:#0f1d43;
+                            margin-left: 15px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .testimonials {
+            @include respond(tab-port) {
+                margin-top: 40px;
+            }
+        }
+    }
+
+    #hp-help {
+        @include numbered-box;
+
+        .numbered-box {
+            .stage {
+                justify-content: flex-start;
+                padding-left: 30%;
+
+                @include respond(tab-port) {
+                    padding-left: 70px;
+                }
+            }
+        }
+
+        @include respond(phone) {
+            .numbered-box {
+                .stage {
+                    justify-content: left;
+                    padding: 25px 25px 25px 60px;      
+                    
+                    .stage-number {
+                        position: absolute;
+                        top:25px;
+                    }
+                }
+            }
+        }
+    }
+
+    .panel-separator {
+        min-height: 650px;
+        align-items: flex-end;
+        display: flex;
+        width: 100%;
+        background-size: cover;
+        background-position: center top;
+        position: relative;
+
+        @include respond(phone) {
+            min-height: 350px;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            z-index: 0;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, rgba(41,60,73,1) 0%, rgba(41,60,73,0) 45%);
+            display: block;
+        }
+    
+        .container {
+            width:100%;
+
+            .columns {
+                @include homepage-column-33;
+
+                .column-33 {
+                    p {                        
+                        span {
+                            line-height: 115%;
+                        }
+                    }
+
+                    @include respond(tab-land) {
+                        width:auto;
+                    }
+                }
+            }
+        }
+    }
+
+    #hp-charges {
+        .column-full {
+            &.practice-areas {
+                justify-content: flex-start;
+                border-bottom: 1px solid $white;
+                border-right: 1px solid $white;
+                background-size: cover;
+            }
+            
+            .practice-area-box {
+                display: flex;
+                width: 33.33%;
+                border: 1px solid $white;
+                border-bottom: none;
+                border-right: none;
+                box-sizing: border-box;
+                padding: 30px;
+                min-height: 350px;
+                flex-wrap: wrap;
+
+                @include respond(tab-port) {
+                    width:50%;
+                }
+
+                @include respond(phone) {
+                    width:100%;
+                }
+
+                p.practice-area-name {
+                    margin-bottom: 20px;
+                    color: $green !important;
+                    text-decoration: underline;
+                    font-weight: bold !important;
+                    font-size: 21px;
+                }
+
+                p.practice-area-text {
+                    font-size: 21px;
+                    font-weight: bold;
+                }
+
+                .bottom-link {
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    width: 100%;
+                    height: 30px;
+                    align-self: flex-end;
+
+                    p {
+                        margin-bottom: 0;
+                        text-decoration: underline;
+                        display: flex;
+                    }
+
+                    span {
+                        margin-left: 10px;
+                        font-weight: bold;
+                        color:$green;
+                    }
+                }
+
+                &.additional {
+                    display: block !important;
+
+                    a.additional-link {
+                        display: flex;
+                        justify-content: space-between;
+                        margin-bottom: 10px;
+
+                        p {
+                            margin-bottom: 0;
+                            text-decoration: underline;
+
+                            &:hover {
+                                color:$green !important;
+                            }
+                        }
+
+                        span {
+                            font-weight: bold;
+                            color:$green;
+                        }
+                    }
+                }
+            }
+        }
+
+        .result {
+            border-top:1px solid $white;
+            width:48%;
+
+            h2 {
+                margin:30px 0 20px !important;
+            }
+        }
+
+        #result_1 {
+            margin: 0 52% 0 0;
+            display: block;
+
+            @include respond(phone) {
+                width:100%;
+                margin:0;
+            }
+        }
+
+        #result_2,
+        #result-button {
+            margin: 0 0 0 52%;
+            display: block;
+
+            @include respond(phone) {
+                width:100%;
+                margin:0;
+            }
+        }
+
+        #result-button {
+            @include respond(phone) {
+                width:auto;
+            }
+        }
+    }
+
+    #hp-faqs {
+        h2 {
+            font-size: 82px;
+            line-height: 105%;
+
+            @include respond(phone) {
+                font-size: 38px;
+            }
+        }
+
+        p.subhead {
+            font-size: 26px;
+        }
+        
+        .faqs {
+            padding-left: 50px;
+
+            h3 {
+                &.question {
+                    margin-top: 0 !important;
+                    position: relative;
+                    width: 100%;
+                    font-size: 25px;
+
+                    &::before {
+                        content: "Q";
+                        font-size: 13px;
+                        color: $white;
+                        background: $green;
+                        width: 28px;
+                        height: 28px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        position: absolute;
+                        margin-left: -50px;
+                        margin-top: 3px;
+                        border-radius: 50%;
+                    }
+
+                    &:not(:first-of-type) {
+                        margin-top: 50px !important;
+                        
+                        &::after {
+                            border-top: 1px solid #0F1D43;
+                            content: "";
+                            position: absolute;
+                            top: -40px;
+                            width: 100%;
+                            left: 0;
+                        }
+                    }
+                }
+            }
+
+            .answer {
+                position: relative;
+                
+                &::before {
+                    content: "A";
+                    font-weight: bold;
+                    font-size: 13px;
+                    color: $white;
+                    background: $green;
+                    width: 28px;
+                    height: 28px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: absolute;
+                    margin-left: -50px;
+                    margin-top: 3px;
+                    border-radius: 50%;
+                }
+            }         
+        }
+
+        .middle-faq {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0 30px;
+            border-top: 1px solid #0F1D43;
+            border-bottom: 1px solid #0F1D43;
+            margin: 30px 0 80px;
+            flex-wrap: wrap;
+
+            .column-33,
+            .column-66 {
+                padding-left: 0;
+
+                @include respond(tab-port) {
+                    width:100%;
+                }
+
+                h3 {
+                    font-size: 44px;
+
+                    &.question {
+                        margin-top: 80px !important;
+                        position: relative;
+                        width: 100%;
+    
+                        &::before { 
+                            margin-left: 0;
+                            margin-top: -42px;
+                        }
+                    }
+                }
+
+                .answer {
+                    margin-top: 80px !important;
+                    position: relative;
+
+                    p {
+                        font-size: 22px;
+                        font-weight: bold;
+                        line-height: 145%;
+                    }
+                    
+                    &::before {
+                        margin-left: 0;
+                        margin-top: -42px;
+                    }
+                }
+            }
+        }  
+        
+        .further-reading {
+            h3 {
+                margin-top: 70px !important;
+                
+                &:after {
+                    border-top: 1px solid #0F1D43;
+                    content: "";
+                    position: absolute;
+                    top: 30px;
+                    width: 100%;
+                    left: 0;
+                }
+            }
+
+            ul {
+                list-style-type: none;
+                padding:0;
+                margin:0;
+
+                li {
+                    a {
+                        text-decoration: underline;
+                        margin-bottom: 5px !important;
+                        display: block;
+
+                        &:hover {
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #hp-why {
+        @include numbered-box;
+
+        p.table-head {
+            margin-bottom: 20px;
+            color: $green !important;
+            font-weight: bold;
+        }
+
+        .numbered-box {
+            .stage {
+                justify-content: space-between;
+                position: relative;
+                align-items: center;
+
+                @include respond(phone) {
+                    padding-right: 20px;
+                    flex-wrap: wrap;
+                    justify-content: flex-end;
+                }
+
+                .stage-number {
+                    position: relative;
+
+                    @include respond(phone) {
+                        position:absolute;
+                        top:25px;
+                    }
+                }
+
+                p.txt-large,
+                p.txt-sm {
+                    width: 45%;
+                    margin-bottom: 0 !important;
+                    font-size: 20px;
+
+                    @include respond(phone) {
+                        width:80% !important;
+                    }
+                }
+
+                p.txt-sm {
+                    width:35%;
+                    margin-right: 10px;
+                    font-size: 14px;
+                    line-height: 125%;
+
+                    @include respond(phone) {
+                        margin-right: 0;
+                        margin-top: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    #hp-location {
+        h2 {
+            font-size: 82px;
+            line-height: 105%;
+
+            @include respond(phone) {
+                font-size: 38px;
+            }
+        }
+
+        .location-contact {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            @include respond(tab-port) {
+                margin-bottom: 60px;
+                flex-wrap: wrap;
+            }
+            
+            p {
+                margin-bottom: 0;
+                margin-left: 20px;
+                display: flex;
+                align-items: center;
+
+                @include respond(phone) {
+                    width:100%;
+                    margin-left: 0;
+                    margin-top: 15px;
+                }
+
+                span {
+                    color: #0F1D43;
+                    margin-left: 10px;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+
+    #hp-pre-footer {
+        h2 {
+            font-size: 82px;
+            line-height: 105%;
+
+            @include respond(phone) {
+                font-size: 38px;
+            }
+        }
+
+        @include contact-block;
+
+        .main-contact {
+            width: 100%;
+            justify-content: center;
+        }
+
+        span.icon-right-arrow {
+            color: $green;
+            margin-left: 10px;
+            vertical-align: middle;
+            font-weight: bold;
+        }
+    }
+}
