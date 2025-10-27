@@ -6,7 +6,6 @@ header {
     display:flex;
     height:115px;
     transition: $trans;
-    
     #header-top {
         display: flex;
         justify-content: space-between;
@@ -14,7 +13,7 @@ header {
         width: 100%;
         align-items: center;
         padding: 0 !important;
-        
+        background: red !important;
         &_left {
             display: flex;
             width: 25%;
