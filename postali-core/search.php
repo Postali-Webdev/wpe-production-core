@@ -18,7 +18,13 @@ get_header(); ?>
                 <div class="column-66 block">
                 <?php if ( have_posts() ) : ?>
                     <?php while ( have_posts() ) : the_post(); ?>
-                        <?php get_template_part( 'content', 'index' ); ?>
+                        <div class="result">
+                            <h2><?php the_title(); ?></h2>
+                            <?php 
+                            $content = get_the_content(); ?>
+                            <p><?php echo wp_trim_words( $content , '35' ); ?></p>
+                            <a href="<?php the_permalink(); ?>" class="btn">Read More</a>
+                        </div>
                     <?php endwhile; ?>
                     <?php the_posts_pagination(); ?>
                 <?php else : ?>

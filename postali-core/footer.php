@@ -11,70 +11,49 @@
     <section class="footer">
         <div class="container">
             <div class="columns">
+                <div class="column-50">
+                    <a href="/" class="custom-logo-link">
+                        <img src="/wp-content/uploads/2026/03/footer-logo.svg" alt="Criminal & Immigration Solutions">
+                    </a>
+                </div>
+                <div class="column-50 block">
+                    <p class="xlrg"><span class="icon-Phone"></span><strong><a href="tel:<?php the_field('global_phone','options'); ?>" title="Call Today"><?php the_field('global_phone','options'); ?></strong></a>
+                    <span class="spacer-15"></span>
+                    <span class="icon-email"></span><strong><a href="mailto:<?php the_field('global_email','options'); ?>" title="Email Today"><?php the_field('global_email','options'); ?></strong></a></p>
+                </div>
+                <div class="spacer-60"></div>
                 <div class="column-full">
-                    <?php the_custom_logo(); ?>
+                    <p class="optional-disclaimer"><?php the_field('footer_disclaimer','options'); ?></p>
                 </div>
-                <div class="spacer-60"></div>
-                <div class="column-25 block">
-                    <p><strong>Contact Us</strong><br>
-                    <a href="tel:<?php the_field('phone_number','options'); ?>" title="Call Today"><?php the_field('phone_number','options'); ?></a><br>
-                    <a href="mailto:<?php the_field('email_address','options'); ?>" title="Email Today"><?php the_field('email_address','options'); ?></a>
-                    </p>
-                </div>
-                <div class="column-50 address-map">
-                    <div class="footer-address">
-                        <p><strong>Office</strong><br>
-                        <?php the_field('address','options'); ?><br>
-                        <a href="<?php the_field('driving_directions','options'); ?>" title="Driving directions" target="blank">Directions</a>
-                        </p>
-                    </div>
-                    <div class="footer-map">
-                        <?php the_field('map_embed','options'); ?>
-                    </div>
-                </div>
-                <div class="column-20 block menu">
-                    <p><strong>Site Navigation</strong></p>
-                    <?php
-                        $args = array(
-                            'container' => false,
-                            'theme_location' => 'footer-nav'
-                        );
-                        wp_nav_menu( $args );
-                    ?>	
-                </div>
-                <div class="spacer-60"></div>
-                <div class="footer-social">
-                    <?php if(get_field('social_facebook','options')) { ?>
-                        <a class="social-link" href="<?php the_field('social_facebook','options'); ?>" title="Facebook" target="blank"><span class="icon-social-facebook"></span></a>
-                    <?php } ?>
-                    <?php if(get_field('social_instagram','options')) { ?>
-                        <a class="social-link" href="<?php the_field('social_instagram','options'); ?>" title="Instagram" target="blank"><span class="icon-social-instagram"></span></a>
-                    <?php } ?>
-                    <?php if(get_field('social_linkedin','options')) { ?>
-                        <a class="social-link" href="<?php the_field('social_linkedin','options'); ?>" title="LinkedIn" target="blank"><span class="icon-social-linkedin"></span></a>
-                    <?php } ?>
-                    <?php if(get_field('social_twitter','options')) { ?>
-                        <a class="social-link" href="<?php the_field('social_twitter','options'); ?>" title="Twitter" target="blank"><span class="icon-social-twitter"></span></a>
-                    <?php } ?>
-                    <?php if(get_field('social_youtube','options')) { ?>
-                        <a class="social-link" href="<?php the_field('social_youtube','options'); ?>" title="YouTube" target="blank"><span class="icon-social-youtube"></span></a>
-                    <?php } ?>
-                </div>
+                <div class="spacer-break"></div>
                 <div class="footer-utility">
-                    <div class="utility">
-                    <?php if ( have_rows('utility_links','options') ): ?>
-                    <?php while ( have_rows('utility_links','options') ): the_row(); ?>  
-                        <a href="<?php the_sub_field('utility_page_link'); ?>"><?php the_sub_field('utility_link_text'); ?></a>
-                    <?php endwhile; ?>
-                    <?php endif; ?> 
+                    <div class="left">
+                        <p>©<?php the_date('Y'); ?> <?php the_field('copyright_text','options'); ?></p>
+                        <?php if( have_rows('utility_menu','options') ): ?>
+                        <ul>
+                        <?php while( have_rows('utility_menu','options') ): the_row(); ?>  
+                            <?php 
+                            $link = get_sub_field('page_link');
+                            if( $link ): 
+                                $link_url = $link['url'];
+                                $link_title = $link['title'];
+                                $link_target = $link['target'] ? $link['target'] : '_self';
+                                ?>
+                                <li><a href="<?php echo esc_url( $link_url ); ?>"><?php echo esc_html( $link_title ); ?></a></li>
+                            <?php endif; ?>
+                        <?php endwhile; ?>
+                        </ul>
+                        <?php endif; ?> 
                     </div>
-                    <div class="disclaimer">
-                        <p class="small"><?php the_field('disclaimer_text','options'); ?></p>
+                    <div class="right">
+                        <a href="https://www.postali.com/"><img src="/wp-content/uploads/2026/03/postali-footer.png" alt="Postali | Results Driven Marketing"></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <div class="bottom-border"></div>
 
 </footer>
 
@@ -91,13 +70,6 @@
     if ( !empty($single_schema) ) :
         echo '<script type="application/ld+json">' . $single_schema . '</script>';
     endif; ?>
-
-    <script>
-    jQuery(document).ready(function(){
-        // Target your .container, .wrapper, .post, etc.
-        jQuery(".video").fitVids();
-    });
-    </script>
 
 <?php wp_footer(); ?>
 

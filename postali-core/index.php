@@ -36,8 +36,9 @@ get_header(); ?>
                                 <div class="post-image" style="background-image:url('<?php the_field('blog_header_default_image','options'); ?>"/></div>
                             <?php } ?>
                                 <div class="meta-content">
-                                    <p class="blog-date"><strong>Posted: </strong><?php the_date(); ?></p>
                                     <h2><?php the_title(); ?></h2>
+                                    <div class="spacer-15"></div>
+                                    <p class="blog-date"><?php the_date(); ?></p>
                                 </div>
                             </a>
                         </article>

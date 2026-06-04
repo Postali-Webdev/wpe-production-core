@@ -24,18 +24,15 @@ get_header(); ?>
     <section class="main-content">
         <div class="container">
             <div class="columns">
-                <div class="column-66">
+                <div class="column-66 center">
                     <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
                         <article>
                             <?php the_content(); ?>
-                            <p><strong><?php the_field('testimonial_author'); ?></strong></p>
+                            <p><strong><?php the_title(); ?></strong></p>
                         </article>
                     <?php endwhile; wp_reset_postdata(); ?>
                     <div class="spacer-60"></div>
                     <?php the_posts_pagination(); ?>
-                </div>
-                <div class="column-33 sidebar-block block">
-                    <?php get_template_part('block','sidebar'); ?>
                 </div>
             </div>
         </div>

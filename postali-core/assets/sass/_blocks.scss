@@ -5,6 +5,95 @@
     background-size: cover !important;
     position: relative;
     padding-top: 30px;
+    background:$deepsea;
+    padding-bottom: 50px;
+
+    .container {
+        .columns {
+            align-items: center;
+
+            .btn {
+                &.transparent {
+                    border:1px solid $white;
+                    color:$white;
+                }
+            }
+        }
+    }
+
+    .result-main {
+        h3 {
+            background: $tan;
+            display: block;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+            color: $teal;
+            font-size: 20px;
+            margin-bottom: 0 !important;
+        }
+    }
+
+    .accordions {
+        background: $cream;
+        border-top: 0;
+        justify-content: flex-end;
+        display: flex;
+        flex-wrap: wrap;
+        border-radius: 0 0 10px 10px;
+
+        &.active {
+            .accordions_title {
+                p {
+                    span {
+                        &::after {
+                            transform: rotate(45deg);
+                        }
+                    }
+                }
+            }
+        }
+
+        .accordions_title {
+            width: 100%;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            padding: 15px 20px;
+
+            p {
+                width: 100% !important;
+                display: flex;
+                color: $slate !important;
+                margin-bottom: 0;
+                line-height: 150%;
+                justify-content: right;
+                align-items: center;
+                
+
+                span::after {
+                    content: "+";
+                    display: inline-block;
+                    transition: 0.2s linear;
+                    font-size: 24px;
+                    margin-left: 10px;
+                    position: relative;
+                    color: $yellow;
+                    font-weight: 200;
+                    font-family: $nunito;
+                    top: auto;
+                    right: auto;
+                }
+            }
+        }
+
+        .accordions_content {
+            p {
+                color:$slate !important;
+                max-width: 100%;
+                line-height: 140%;
+                margin-bottom: 0;
+            }
+        }
+    }
 
     .column-66,
     .column-50 {
@@ -36,7 +125,7 @@
                     letter-spacing: 3px;
                     margin-bottom: 10px;
                     font-family: $sans;
-                    color: $green !important;
+                    color: $blk !important;
                     font-size: 20px;
                 }
 
@@ -77,7 +166,7 @@
                         letter-spacing: 3px;
                         margin-bottom: 10px;
                         font-family: $sans;
-                        color: $green !important;
+                        color: $blk !important;
                         font-size: 20px;
                     }
                 }
@@ -155,10 +244,25 @@
         font-size: 12px;
         color:$white;
         font-weight: normal;
+        margin-bottom: 0;
+
+        .icon-crest-chevron-right {
+            font-size: 8px;
+            margin: 0 5px;
+        }
 
         @include respond (tab-land) {
             line-height: 200%;
-            padding-bottom: 0;
+            padding-bottom: 30px;
+        }
+
+        a {
+            color:$white;
+        }
+
+        .breadcrumb_last {
+            color:$white;
+            opacity: .6;
         }
 
         .separator {
@@ -170,7 +274,8 @@
         text-transform: none;
         font-size: 60px;
         color:$white;
-        line-height: 120%;
+        line-height: 105%;
+        font-family: $abhaya;
 
         @include respond(tab-land) {
             font-size: 54px;
@@ -187,19 +292,53 @@
 
     p {
         color:$white !important;
-        max-width: 70%;
+        max-width: 80%;
 
         @include respond (tab-land) {
             max-width: 100%;
         }
 
-        &.cta {
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
         &.blog-date {
             margin-bottom: 10px;
+        }
+    }
+
+    .banner-cta {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+
+        @include respond(tab-port) {
+            text-align: left;
+        }
+
+        p.cta {
+            margin-bottom: 25px !important;
+            color:$ice !important;
+            font-size: 20px;
+        }
+
+        .cta-contact {
+            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 15px;
+
+            @include respond(tab-port) {
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+
+            .btn {
+                &.transparent {
+                    border: 1px solid $white !important;
+                    color:$white;
+
+                    &:hover {
+                        color:$slate;
+                        background:$white;
+                    }
+                }
+            }
         }
     }
 
@@ -211,6 +350,29 @@
         left:0;
         width: 100%;
         height: 100%;
+    }
+
+}
+
+.banner-interior {
+    padding: 0;
+    
+    .container {
+        .columns {
+            .column-full {
+                justify-content: flex-end;
+
+                img {
+                    max-width: 35%;
+                    margin-right: -3%;
+
+                    @include respond(tab-port) {
+                        max-width: 100%;
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -267,6 +429,49 @@
         margin-top: 30px;
     }
 
+    @include highlight-box;
+
+    .highlight-box {
+        .bottom {
+            .menu {
+                list-style-type: none;
+                margin:0;
+
+                li {
+                    margin: 3px 0 !important;
+                    position: relative;
+
+                    &::after {
+                        content: "\e906";
+                        font-family: $icomoon;
+                        position: absolute;
+                        right: 0;
+                        font-size: 12px;
+                        transition: $trans;
+                    }
+
+                    &:hover {
+                        &::after {
+                            right:-3px;
+                        }
+                    }
+
+                    &::before {
+                        display:none;
+                    }
+
+                    a {
+                        text-decoration: none;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     p.sidebar-more {
         transition:$trans;
         
@@ -305,33 +510,57 @@
     }
     
     .testimonial-block {
-        padding: 50px;
+        padding: 40px;
         box-sizing: border-box;
+        background:$sky;
+        border-radius: 10px;
+
+        @include respond(phone) {
+            padding:30px;
+        }
+
+        img {
+            max-width: 30px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 0;
+            text-transform: uppercase;
+            font-weight: normal;
+
+            &.testimonial {
+                font-size:16px;
+                margin-bottom: 10px;
+                font-weight: normal;
+                line-height: 145%;
+                text-transform: none;
+            }
+        }
+    }
+
+    .highlight-block {
+        padding: 40px;
+        box-sizing: border-box;
+        background:$bark;
+        border-radius: 10px;
 
         @include respond(phone) {
             padding:30px;
         }
 
         p {
+            font-size:16px;
             margin-bottom: 0;
+            font-weight: normal;
+            line-height: 145%;
+            text-transform: none;
+            color:$white;
 
-            &.testimonial {
-                font-size:16px;
-                margin-bottom: 40px;
-                font-weight: normal;
-                line-height: 145%;
-            }
-        }
-    }
-
-    .result-block {
-        p {
             &.large {
-                margin-bottom: 10px;
-            }
-
-            &.result {
-                margin-bottom: 0;
+                color:$yellowfade;
+                font-size: 20px;
+                margin-bottom: 20px;
             }
         }
     }
@@ -407,51 +636,36 @@
 }
 
 #pre-footer {
+    background:$teal;
+    padding: 120px 0;
+    overflow-x: hidden;
+
+    &::after {
+        position: absolute;
+        content: "";
+        background: url(/wp-content/uploads/2026/03/Icon-deepsea.svg);
+        height: 100%;
+        width: 450px;
+        right: -50px;
+        top: 0;
+        opacity: 0.4;
+        background-size: 90%;
+        background-position: top -190px center;
+        background-repeat: no-repeat;
+    }
 
     h2, h3, h4, p, ul li, ol li {
-        color:$dkblue;
+        color:$white;
     }
 
-    h2 {
-        font-size: 82px;
+    .btn {
+        &.transparent {
+            border:1px solid $white;
+            color:$white;
 
-        @include respond(tab-port) {
-            font-size: 62px;
-        }
-
-        @include respond(phone) {
-            font-size: 45px;
-        }
-    }
-
-    p.subhead {
-        font-size: 32px;
-    }
-
-    .pre-footer-contact {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        .contact-block-left {
-            margin-right: 30px;
-        }
-
-        .contact-block-right {
-            p {
-                margin-bottom: 0;
-                display: flex;
-                align-items: center;
-                
-                a {
-                    color:inherit;
-                }
-
-                span.icon-right-arrow {
-                    margin-left: 10px;
-                    font-size: 24px;
-                    color: $green;
-                }
+            &:hover {
+                background:$white;
+                color:$slate;
             }
         }
     }

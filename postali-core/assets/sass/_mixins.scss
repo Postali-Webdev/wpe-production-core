@@ -204,7 +204,7 @@
 
 // main nav search
 @mixin nav-search-desktop {
-    &.search-holder {
+    .search-holder {
         width:30px;
         justify-content: flex-end;
 
@@ -212,40 +212,33 @@
             position: relative;
             z-index: 10;
     
-            .icon-search-icon:before, 
+            .icon-crest-search-icon:before, 
             .icon-close-x:before {
-                content: "";
                 position: absolute;
-                top: 9px;
-                left: -9px;
-                transition: 0.3s linear;
                 -webkit-transition: 0.3s linear;
                 z-index: 10;
-                color: $white;
-                font-size: 20px;
-                font-weight: $normal;
-                width: 20px;
-                height: 20px;
-                background-repeat: no-repeat;
-                background-size: contain;
+                font-weight: normal;
+                margin-top: -5px;
             }
     
-            .icon-search-icon:before {
-                content:"\e901";
+            .icon-crest-search-icon:before {
+                content:"\e902";
                 font-family: $icomoon;
-                color:$white;
+                color:$blk;
             }
     
             .icon-close-x:before {
-                background-image: url('/wp-content/themes/postali-child/assets/img/close-icon.svg');
+                content:"\e900";
+                font-family: $icomoon;
+                color:$blk;
             }
     
             .form-control {
                 width: 175px;
                 padding: 6px;
-                font-size: 16px;
+                font-size: 15px;
                 border: 0;
-                font-family: $serif;
+                font-family: $nunito;
             }
     
             .btn {
@@ -268,15 +261,14 @@
             }
     
             .btn-search {
-                height:40px;
-                border-radius: 0 10px 10px 0;
-                background:$white;
+                height:auto;
+                border:none;
+                background:none;
                 padding:8px;
                 position: relative;
-                top: 0;
-                right: -5px;
+                font-size: 18px;
                 span {
-                    color:$white;
+                    color:$blk;
                 }
             }
             
@@ -286,24 +278,24 @@
                 width: 250px;
                 overflow: hidden;
                 background: $white;
-                right: 11px;
+                right: 35px;
                 top: 0;
                 z-index: 9;
                 transition: all .3s ease-in-out;
-                border-radius: 10px 0 0 10px;
+                border-radius: 0;
     
                 &.hdn {
                     width: 0;
                     
                     & ~ .btn-search {
-                        height:39px;
-                        border-radius: 0 10px 10px 0;
+                        height:auto;
+                        border:none;
                         background: unset;
                         padding:8px;
     
                         &:hover {
-                            .icon-magnifying-glass:before {
-                                color: $white;
+                            .crest-close-icon:before {
+                                color: $blk;
                             }
                         }
     
@@ -322,10 +314,10 @@
                     .btn {
                         border: 0;
                         background: $white;
-                        font-size: 1.6rem;
-                        padding: 4px 8px 0;
-                        border-radius: 5px 0 0 5px;
-                        height: 32px;
+                        font-size: 18px;
+                        padding: 8px;
+                        border:none;
+                        height: auto;
 
                         span {
                             color:$white;
@@ -339,16 +331,19 @@
 
 @mixin nav-search-mobile {
     &.search-holder {
-        width:100%;
-        padding: 0 15px;
+        width: calc(100% - 60px);
+        padding: 0;
         box-sizing: border-box;
-        position: absolute;
+        position: relative;
         z-index: 10000;
-        bottom: 80px;
-        background: $white !important;
+        bottom: auto;
         display: block;
-        height: 70px;
         border-bottom: none;
+        margin: 11px 30px 0 30px;
+
+        &::after {
+            display: none;
+        }
         
         .navbar-form-search {    
             width:100%;
@@ -360,7 +355,11 @@
             }
     
             .form-control {
-                width:100%;
+                 width: calc(100% - 45px);
+                border: none;
+                padding: 15px;
+                box-sizing: border-box;
+                border-radius: 10px 0 0 10px;
             }
             
             .search-form-container {
@@ -369,26 +368,27 @@
                 right: auto;
                 top:15px;
                 border-radius: 0;
-                background: $white;
     
                 &.hdn {
                     width:100%;
                     
                     & ~ .btn-search {
-                        width:auto;
-                        height: 35px;
-                        background: $white;
-                        padding: 8px;
-                        position: absolute;
-                        z-index: 80;
-                        right: 0;
-                        top: 20px;
-                        width: 35px;
-                        border-radius: 0;
-                        border: solid 3px $white;
+                            height: auto;
+                            background: $yellow;
+                            padding: 8px;
+                            position: absolute;
+                            z-index: 80;
+                            right: 2px;
+                            top: 0;
+                            width: 46px;
+                            border-radius: 0 10px 10px 0;
+                            border: none;
+                            height: 46px;
+                            box-sizing: border-box;
 
                         span {
-                            color:$white !important;
+                            color:$blk !important;
+                            font-size: 20px;
                         }
 
                         .icon-magnifying-glass:before {
@@ -461,7 +461,7 @@
             }
             
             span {
-                color:$green;
+                color:$blk;
                 font-size: 125px;
                 display: block;
                 font-weight: bold;
@@ -519,7 +519,7 @@
                 font-weight: bold;
                 height: 24px;
                 width: 24px;
-                background: $green;
+                background: $blk;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -572,7 +572,7 @@
         width: 32.3%;
         margin: .5%;
         position: relative;
-        background: $dkblue;
+        background: $cream;
 
         @include respond(tab-land) {
             width:49%;
@@ -593,14 +593,14 @@
         h3 {
             font-size: 32px;
             font-weight: bold;
-            color: $white;
+            color: $slate;
             padding:0;
             margin:0 0 200px 0 !important;
         }
 
         .accordions {
             position: absolute;
-            background: $ltgrey;
+            background: $cream;
             box-sizing: border-box;
             height: 60px;
             border-bottom: none;
@@ -617,7 +617,7 @@
                 align-items: center;
 
                 &.active {
-                    background:$green;
+                    background:$cream;
                 }
 
                 p {
@@ -631,14 +631,14 @@
                     display: block;
                     margin-left: 15px;
                     display: inline-block;
-                    color: $dkblue;
+                    color: $blk;
 
                     &:after {
                         content: "+";
                         display: block;
                         transition: 0.2s linear;
                         position: relative;
-                        color: $dkblue;
+                        color: $yellow;
                         top: 0;
                         right: 0;
                         font-weight: bolder;
@@ -656,7 +656,7 @@
                 line-height: 170%;
                 padding: 20px 40px;
                 box-sizing: border-box;
-                background: $green;
+                background: $teal;
                 position: relative;
                 z-index: 5;
             }
@@ -703,5 +703,56 @@
         }
 
         @include slick-arrows;
+    }
+}
+
+@mixin highlight-box {
+    .highlight-box {
+        display: block;
+        width: 100%;
+    
+        .top {
+            background:$yellowfade;
+            display: block;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+
+            &.tan {
+                background:$tan;
+            }
+            
+            p {
+                color:$teal;
+                font-size: 24px;
+                font-weight: 800;
+                margin-bottom: 0;
+                text-align: center;
+            }
+        }
+
+        .bottom {
+            background:$cream;
+            display: block;
+            padding: 40px;
+            border-radius: 0 0 10px 10px;
+
+            p {
+                color:$slate !important;
+                margin-bottom: 0;
+
+                &.headline {
+                    color:$slate;
+                    font-size: 24px;
+                    font-weight: 800;
+                    margin-bottom: 20px;
+                    text-align: left;
+                    font-family: $nunito;
+                }
+            }
+
+            ul {
+                margin-bottom: 0;
+            }
+        }
     }
 }

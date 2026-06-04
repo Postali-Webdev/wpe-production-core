@@ -1,749 +1,320 @@
-/**
- * Template Front Page Styles
- *
- * @package Postali Child
- * @author Postali LLC
-**/
-
 .home {
-    font-family: "Inter", sans-serif;
+    @include highlight-box;
     
-    p#breadcrumbs {
-        display:none;
-    }
+    .hp-banner-icon {
+        position: absolute;
+        width: auto;
+        left: 50%;
+        margin-top: -70px;
+        z-index: 51;
+        transform: translateX(-50%);
 
-    p.subhead {
-        font-size: 28px;
-    }
-
-    h2 {
-        margin-top: 0 !important;
-    }
-
-    p,
-    h2,
-    h3,
-    h4 {
-        span {
-            color:$green;
+        @include respond(tab-port) {
+            display:none;
         }
     }
 
-    .white,
-    .blue {
-        .annotation {
-            width: 100%;
-            display: inline-flex;
-            justify-content: flex-end;
-            margin-bottom: 50px;
-    
-            &::before {
-                width: calc(100% - 120px);
-                height: 1px;
-                content: "";
-                position: absolute;
-                border-bottom: 1px solid black;
-                top: 24px;
+    .hp-banner {
+        overflow-x:hidden;
+        background: #FAF7F2;
+        background: linear-gradient(0deg,rgba(250, 247, 242, 1) 0%, rgba(250, 247, 242, 1) 20%, rgba(255, 255, 255, 1) 10%);
+
+        .container {
+            &.photo-block {
+                width: 110%;
+                max-width: 110%;
+                padding: 0 !important;
+                height: 600px;
+                margin-top: -110px;
+                margin-left: -5%;
                 z-index: 0;
-                left: 60px;
+
+                @include respond(tab-port) {
+                    height:475px;
+                }
 
                 @include respond(phone) {
-                    left:30px;
+                    height:250px;
+                    width: 100%;
+                    max-width: 100%;
+                    margin-top: 50px;
+                    margin-left: 0;
+                }
+
+                .photo-grid {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    gap: 15px;
+                    flex-direction: row;
+                    align-items: flex-end;
+
+                    .slick-track {
+                        @include respond(phone) {
+                            height:250px;
+                        }
+                    }
+                    
+                    .column1,
+                    .column2,
+                    .column3,
+                    .column4,
+                    .column5 {
+                        width: 20%;
+                        gap: 15px;
+                        display: flex;
+                        flex-wrap: nowrap;
+                        flex-direction: column;
+
+                        @include respond(tab-port) {
+                            width: 32%;
+                        }
+
+                        @include respond(phone) {
+                            width: 100%;
+                            flex-wrap: wrap;
+                            flex-direction: row;
+                            margin: 0 7px !important;
+                        }
+                        
+                        .block1,
+                        .block2 {
+                            background-color: $tan;
+                            height: 50%;
+                            width: 100%;
+                            border-radius: 5px;
+                            overflow: hidden;
+
+                            @include respond(phone) {
+                                height:100%;
+                            }
+
+                            img {
+                                border-radius: 10px;
+                                height: 100%;
+                                width: 100%;
+                                -o-object-fit: cover;
+                                   object-fit: cover;
+                            }
+                        }
+                    }
+
+                    .column1,
+                    .column5 {
+                        height: 100%;
+
+                        @include respond(tab-port) {
+                            display:none;
+                        }
+
+                        @include respond(phone) {
+                            display:block;
+                        }
+                    }
+
+                    .column2,
+                    .column4 {
+                        height: 70%;
+
+                        @include respond(phone) {
+                            height:100%;
+                        }
+                    }
+
+                    .column3 {
+                        height: 55%;
+
+                        @include respond(phone) {
+                            height:100%;
+                        }
+                        
+                        .block1 {
+                            height: 100%;
+                        }
+                    }
                 }
             }
-    
-            span {
-                padding: 8px 14px;
-                background: $green;
-                font-size: 14px;
-                border-radius: 50px;
-                font-weight: bold;
-                position: relative;
-                border: 11px solid $white;
-                color:$white;
-            }
         }
     }
 
-    .white {
-        background:$white;
+    .bottom-curve {
+        padding: 0;
 
-        p {
-            a {
-                &:hover {
-                    color:inherit;
-                    text-decoration: none;
-                }
-            }
+        svg {
+            max-height: 300px;
+            width: 100%;
+            margin: auto;
+            display: block;
+
+            .st0 { fill: $cream; }
         }
     }
 
-    .blue {
-        background:#293c49;
+    .after-curve {
+        margin-top: -150px;
 
-        p,
-        h2,
-        h3,
-        h4 {
-            color:$white;
+        @include respond(tab-port) {
+            margin-top: -50px;
         }
 
-        .annotation {    
-            &::before {
-                border-bottom: 1px solid $white;
-            }
-
-            span {
-                border: 11px solid #293c49;
-            }
+        @include respond(phone) {
+            margin-top: 0;
         }
 
-        .btn {
-            &:hover {
-                color:#0F1D43 !important;
-                background:$white !important;
-            }
-        }
-    }
-
-    #hp-banner {
         .container {
-            padding:30px 60px 200px;
+            .columns {
+                align-items: normal;
+
+                .column-50 {
+                    align-content: center;
+
+                    &.image {
+                        min-height: 600px;
+                        border-radius: 5px !important;
+
+                        @include respond(tab-port) {
+                            min-height: auto;           
+                        }
+
+                        .image-container {
+                            height: 100%;
+                            width: 100%;
+                            
+                            img {
+                                height: 100%;
+                                width: 100%;
+                                border-radius: 10px;
+                                -o-object-fit: cover;
+                                object-fit: cover;
+                                -o-object-position: center;
+                                object-position: center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .hp-p3 {
+        padding-bottom: 30px;
+        margin: 0 60px;
+
+        @include respond(tab-port) {
+            margin: 0;
+        }
+        
+        .container {
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            padding: 40px !important;
             box-sizing: border-box;
 
             @include respond(tab-port) {
-                padding:30px 60px;
+                margin:0 30px;
             }
-
-            h1 {
-                font-size: 74px;
-                line-height: 105%;
-
-                @include respond(tab-land) {
-                    font-size: 54px;
-                }
-        
-                @include respond(tab-port) {
-                    font-size: 48px;
-                }
-        
-                @include respond(phone) {
-                    font-size: 42px;
-                }
-            }
-            
-            .subhead {
-                color:$white;
-                font-size: 32px;
-
-                @include respond(phone) {
-                    margin-bottom: 30px;
-                }
-            }
-
-            p {
-                max-width: 100%;
-            }
-
-            &.spaced {
-                padding: 0 60px 0;
-                
-                .column-full {
-                    display: flex;
-                    justify-content: space-between;
-                    border-top: 1px solid $white;
-                    padding-top: 30px;
-
-                    @include respond(tab-port) {
-                        flex-wrap: wrap;
-                    }
-
-                    .banner-image {
-                        max-width: 30%;
-
-                        @include respond(tab-port) {
-                            max-width: 100%;
-                            width: 100%;
-                            margin:0 auto 40px;
-
-                            img {
-                                width:100%;
-                            }
-                        }
-                    }
-
-                    .banner-content-block {
-                        width: 65%;
-                        display: flex;
-                        justify-content: space-between;
-                        
-                        @include respond(phone) {
-                            flex-wrap: wrap;
-                            margin-bottom: 60px;
-                        }
-
-                        .banner-content {
-                            max-width: 40%;
-
-                            @include respond(phone) {
-                                max-width: 100%;
-                                width:100%;
-                                margin-bottom: 20px;
-                            }
-
-                            p {
-                                font-size: 20px;
-                                font-weight: bold;
-                                margin-bottom: 15px;
-                            }
-                        }
-
-                        .banner-cta-block {
-                            max-width: 55%;
-                            text-wrap: wrap;
-
-                            @include respond(phone) {
-                                max-width: 100%;
-                                width:100%;
-                            }
-                            
-                            p {
-                                max-width: 100%;
-                                font-weight: bold;
-                                margin-bottom: 15px;
-                                font-size: 20px;
-                            }
-
-                            span.icon-right-arrow {
-                                color: $green;
-                                margin-left: 10px;
-                                vertical-align: middle;
-                                font-weight: bold;
-                            }
-                        }
-
-                        @include respond(tab-port) {
-                            width: 100%;
-                        }
-                    }
-                }
-            }
-
-            &.touts {
-                padding: 90px 60px 0;
-                
-                .columns {
-                    display:block;
-
-                    @include homepage-column-33;
-                }
-            }
-        }
-    }
-
-    #hp-about {        
-        p.testimonial-content {
-            margin-bottom: 10px;
-        }
-
-        .hp-video {
-            justify-content: space-evenly;
-            align-items: center;
-
-            .attorney-video {
-                width: auto;
-                margin-left: auto;
-                margin-right: 50px;
-
-                @include respond(tab-land) {
-                    width:50%;
-                    margin-right: 5%;
-                }
-
-                @include respond(tab-port) {
-                    width:70%;
-                    margin: 0 auto 60px;
-                }
-
-                @include respond(phone) {
-                    width:100%;
-                }
-
-                .attorney-headshot {
-                    display: block;
-                    height: 640px;
-                    background-size: cover;
-                    width: 540px;
-                    background-position: center;
-
-                    @include respond(tab-land) {
-                        width:100%;
-                        height:500px;
-                    }
-                }
-
-                .quote-box {
-                    position: absolute;
-                    bottom: 50px;
-                    left: -100px;
-                    padding: 40px;
-                    background: $white;
-                    max-width: 300px;
-                    box-shadow: 0px 0px 30px 10px rgba(0,0,0,0.25);
-
-                    @include respond(tab-land) {
-                        position: relative;
-                        bottom: 0;
-                        left: 0;
-                        width: 100%;
-                        max-width: 100%;
-                    }
-
-                    p {
-                        font-size: 22px;
-                        font-weight: bold;
-                        margin-bottom: 10px;
-
-                        &.runtime {
-                            font-size: 12px !important;
-                            font-weight: normal !important;
-                            text-align: right !important;
-                            margin:10px -20px -30px 0 !important
-                        }
-                    }
-
-                    .play-button {
-                        display: flex;
-                        align-items: center;
-                        font-family: "Inter", sans-serif;
-                        color: #0f1d43;
-                        font-size: 16px;
-                        
-                        a {
-                            color: inherit;
-                        }
-
-                        .icon-tick-down {
-                            transform: rotate(-90deg);
-                            color: black;
-                            width: 40px;
-                            height: 40px;
-                            justify-content: center;
-                            align-items: center;
-                            display: flex;
-                            background: $green;
-                            border-radius: 50%;
-                            margin-right: 20px;
-                        }
-                    }
-                }
-
-                img {
-                    max-height: 600px;
-                    height: 100%;
-                }
-            }
-        }
-
-        .about-cta {
-            @include respond(tab-land) {
-                width:45%;
-            }
-
-            @include respond(tab-port) {
-                width:70%;
-            }
-
-            @include respond(phone) {
-                width:100%;
-            }
-
-            .banner-cta-block {
-                p {
-                    margin-bottom: 15px;
-                    font-weight: bold;
-                    font-size: 18px;
-                }
-
-                .contact-block-right {
-                    margin-top: 15px;
-
-                    p {
-                        margin-bottom: 0;
-                        display: flex;
-                        align-items: center;
-                        font-size: 16px;
-
-                        span {
-                            color:#0f1d43;
-                            margin-left: 15px;
-                        }
-                    }
-                }
-            }
-        }
-
-        .testimonials {
-            @include respond(tab-port) {
-                margin-top: 40px;
-            }
-        }
-    }
-
-    #hp-help {
-        @include numbered-box;
-
-        .numbered-box {
-            .stage {
-                justify-content: flex-start;
-                padding-left: 30%;
-
-                @include respond(tab-port) {
-                    padding-left: 70px;
-                }
-            }
-        }
-
-        @include respond(phone) {
-            .numbered-box {
-                .stage {
-                    justify-content: left;
-                    padding: 25px 25px 25px 60px;      
-                    
-                    .stage-number {
-                        position: absolute;
-                        top:25px;
-                    }
-                }
-            }
-        }
-    }
-
-    .panel-separator {
-        min-height: 650px;
-        align-items: flex-end;
-        display: flex;
-        width: 100%;
-        background-size: cover;
-        background-position: center top;
-        position: relative;
-
-        @include respond(phone) {
-            min-height: 350px;
-        }
-
-        &::after {
-            content: "";
-            position: absolute;
-            z-index: 0;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(0deg, rgba(41,60,73,1) 0%, rgba(41,60,73,0) 45%);
-            display: block;
-        }
-    
-        .container {
-            width:100%;
 
             .columns {
-                @include homepage-column-33;
-
-                .column-33 {
-                    p {                        
-                        span {
-                            line-height: 115%;
-                        }
-                    }
-
-                    @include respond(tab-land) {
-                        width:auto;
-                    }
-                }
+                align-items: center;
             }
         }
     }
 
-    #hp-charges {
-        .column-full {
-            &.practice-areas {
-                justify-content: flex-start;
-                border-bottom: 1px solid $white;
-                border-right: 1px solid $white;
-                background-size: cover;
-            }
-            
-            .practice-area-box {
-                display: flex;
-                width: 33.33%;
-                border: 1px solid $white;
-                border-bottom: none;
-                border-right: none;
-                box-sizing: border-box;
-                padding: 30px;
-                min-height: 350px;
-                flex-wrap: wrap;
-
-                @include respond(tab-port) {
-                    width:50%;
-                }
-
-                @include respond(phone) {
-                    width:100%;
-                }
-
-                p.practice-area-name {
-                    margin-bottom: 20px;
-                    color: $green !important;
-                    text-decoration: underline;
-                    font-weight: bold !important;
-                    font-size: 21px;
-                }
-
-                p.practice-area-text {
-                    font-size: 21px;
-                    font-weight: bold;
-                }
-
-                .bottom-link {
-                    display: flex;
-                    justify-content: flex-end;
-                    align-items: center;
-                    width: 100%;
-                    height: 30px;
-                    align-self: flex-end;
-
-                    p {
-                        margin-bottom: 0;
-                        text-decoration: underline;
-                        display: flex;
-                    }
-
-                    span {
-                        margin-left: 10px;
-                        font-weight: bold;
-                        color:$green;
-                    }
-                }
-
-                &.additional {
-                    display: block !important;
-
-                    a.additional-link {
+    .hp-p4 {
+        .container {
+            .columns {
+                align-items: center;
+                
+                .column-50 {
+                    &.image-grid {
                         display: flex;
                         justify-content: space-between;
-                        margin-bottom: 10px;
+                        gap: 14px;
+                        flex-wrap: wrap;
 
-                        p {
-                            margin-bottom: 0;
-                            text-decoration: underline;
+                        @include respond(tab-port) {
+                            margin-bottom: 50px;
+                        }
 
-                            &:hover {
-                                color:$green !important;
+                        .grid-block {
+                            width: 100%;
+
+                            &:first-of-type,
+                            &:nth-of-type(2) {
+                                width: calc(50% - 7px);
+                                height: 200px;
+
+                                img {
+                                    border-radius: 10px;
+                                    -o-object-fit: cover;
+                                       object-fit: cover;
+                                    height: 100%;
+                                    width: 100%;
+                                }
+                            }
+
+                            &:last-of-type {
+                                width: 100%;
+                                height: 200px;
+                                
+                                img {
+                                    border-radius: 10px;
+                                    -o-object-fit: cover;
+                                       object-fit: cover;
+                                    height: 100%;
+                                    width: 100%;
+                                }
+                            }
+
+                            &.text-block {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                padding: 20px 30px;
+                                border-radius: 10px;
+
+                                p {
+                                    margin-bottom: 0;
+                                    font-weight: bold;
+                                    text-align: center;
+                                }
                             }
                         }
+                    }
+                }
 
-                        span {
-                            font-weight: bold;
-                            color:$green;
+                .call-out {
+                    border-radius: 10px;
+                    background:$cream;
+                    margin: 0 10%;
+                    padding: 40px;
+                    flex-wrap: nowrap;
+                    gap: 40px;
+
+                    @include respond(tab-port) {
+                        flex-wrap:wrap;
+                        margin: 0;
+                    }
+
+                    .quote {
+                        img {
+                           height: auto;
+                           min-width: 60px; 
                         }
-                    }
-                }
-            }
-        }
-
-        .result {
-            border-top:1px solid $white;
-            width:48%;
-
-            h2 {
-                margin:30px 0 20px !important;
-            }
-        }
-
-        #result_1 {
-            margin: 0 52% 0 0;
-            display: block;
-
-            @include respond(phone) {
-                width:100%;
-                margin:0;
-            }
-        }
-
-        #result_2,
-        #result-button {
-            margin: 0 0 0 52%;
-            display: block;
-
-            @include respond(phone) {
-                width:100%;
-                margin:0;
-            }
-        }
-
-        #result-button {
-            @include respond(phone) {
-                width:auto;
-            }
-        }
-    }
-
-    #hp-faqs {
-        h2 {
-            font-size: 82px;
-            line-height: 105%;
-
-            @include respond(phone) {
-                font-size: 38px;
-            }
-        }
-
-        p.subhead {
-            font-size: 26px;
-        }
-        
-        .faqs {
-            padding-left: 50px;
-
-            h3 {
-                &.question {
-                    margin-top: 0 !important;
-                    position: relative;
-                    width: 100%;
-                    font-size: 25px;
-
-                    &::before {
-                        content: "Q";
-                        font-size: 13px;
-                        color: $white;
-                        background: $green;
-                        width: 28px;
-                        height: 28px;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        position: absolute;
-                        margin-left: -50px;
-                        margin-top: 3px;
-                        border-radius: 50%;
-                    }
-
-                    &:not(:first-of-type) {
-                        margin-top: 50px !important;
-                        
-                        &::after {
-                            border-top: 1px solid #0F1D43;
-                            content: "";
-                            position: absolute;
-                            top: -40px;
-                            width: 100%;
-                            left: 0;
-                        }
-                    }
-                }
-            }
-
-            .answer {
-                position: relative;
-                
-                &::before {
-                    content: "A";
-                    font-weight: bold;
-                    font-size: 13px;
-                    color: $white;
-                    background: $green;
-                    width: 28px;
-                    height: 28px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    position: absolute;
-                    margin-left: -50px;
-                    margin-top: 3px;
-                    border-radius: 50%;
-                }
-            }         
-        }
-
-        .middle-faq {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0 30px;
-            border-top: 1px solid #0F1D43;
-            border-bottom: 1px solid #0F1D43;
-            margin: 30px 0 80px;
-            flex-wrap: wrap;
-
-            .column-33,
-            .column-66 {
-                padding-left: 0;
-
-                @include respond(tab-port) {
-                    width:100%;
-                }
-
-                h3 {
-                    font-size: 44px;
-
-                    &.question {
-                        margin-top: 80px !important;
-                        position: relative;
-                        width: 100%;
-    
-                        &::before { 
-                            margin-left: 0;
-                            margin-top: -42px;
-                        }
-                    }
-                }
-
-                .answer {
-                    margin-top: 80px !important;
-                    position: relative;
-
-                    p {
-                        font-size: 22px;
-                        font-weight: bold;
-                        line-height: 145%;
                     }
                     
-                    &::before {
-                        margin-left: 0;
-                        margin-top: -42px;
-                    }
-                }
-            }
-        }  
-        
-        .further-reading {
-            h3 {
-                margin-top: 70px !important;
-                
-                &:after {
-                    border-top: 1px solid #0F1D43;
-                    content: "";
-                    position: absolute;
-                    top: 30px;
-                    width: 100%;
-                    left: 0;
-                }
-            }
+                    p {
+                        margin-bottom: 0;
+                        font-weight: 200;
+                        text-align: left;
+                        line-height: 140%;
+                        padding-right: 10%;
 
-            ul {
-                list-style-type: none;
-                padding:0;
-                margin:0;
-
-                li {
-                    a {
-                        text-decoration: underline;
-                        margin-bottom: 5px !important;
-                        display: block;
-
-                        &:hover {
-                            text-decoration: none;
+                        &.small {
+                            text-transform: uppercase;
+                            font-weight: 500;
+                            padding-right: 0;
                         }
                     }
                 }
@@ -751,125 +322,144 @@
         }
     }
 
-    #hp-why {
-        @include numbered-box;
+    .top-swoosh {
+        padding: 0;
+        background: #044A59;
+        background: linear-gradient(0deg,rgba(4, 74, 89, 1) 0%, rgba(4, 74, 89, 1) 10%, rgba(255, 255, 255, 1) 10%);   
+        margin-bottom: -2px;         
 
-        p.table-head {
-            margin-bottom: 20px;
-            color: $green !important;
-            font-weight: bold;
-        }
+        svg {
+            max-height: 200px;
+            width: 100%;
+            margin: auto;
+            display: block;
 
-        .numbered-box {
-            .stage {
-                justify-content: space-between;
-                position: relative;
-                align-items: center;
-
-                @include respond(phone) {
-                    padding-right: 20px;
-                    flex-wrap: wrap;
-                    justify-content: flex-end;
-                }
-
-                .stage-number {
-                    position: relative;
-
-                    @include respond(phone) {
-                        position:absolute;
-                        top:25px;
-                    }
-                }
-
-                p.txt-large,
-                p.txt-sm {
-                    width: 45%;
-                    margin-bottom: 0 !important;
-                    font-size: 20px;
-
-                    @include respond(phone) {
-                        width:80% !important;
-                    }
-                }
-
-                p.txt-sm {
-                    width:35%;
-                    margin-right: 10px;
-                    font-size: 14px;
-                    line-height: 125%;
-
-                    @include respond(phone) {
-                        margin-right: 0;
-                        margin-top: 20px;
-                    }
-                }
-            }
+            .st1 { fill:$sky; }
+            .st2 { fill:$deepsea; }
         }
     }
 
-    #hp-location {
-        h2 {
-            font-size: 82px;
-            line-height: 105%;
+    .hp-p5 {
+        background:$deepsea;
 
-            @include respond(phone) {
-                font-size: 38px;
-            }
-        }
-
-        .location-contact {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
 
             @include respond(tab-port) {
-                margin-bottom: 60px;
-                flex-wrap: wrap;
+                grid-template-columns: 1fr 1fr;
             }
-            
-            p {
-                margin-bottom: 0;
-                margin-left: 20px;
-                display: flex;
-                align-items: center;
 
-                @include respond(phone) {
-                    width:100%;
-                    margin-left: 0;
-                    margin-top: 15px;
-                }
+            @include respond(phone) {
+                grid-template-columns: 1fr;
+            }
 
-                span {
-                    color: #0F1D43;
-                    margin-left: 10px;
-                    font-size: 18px;
+            .grid-box {
+                padding: 30px;
+                background-color: rgba($white, .1);
+                border-radius: 10px;
+
+                p {
+                    margin-bottom: 0;
+                    font-weight: 700;
+                    line-height: 130%;
                 }
             }
         }
     }
 
-    #hp-pre-footer {
-        h2 {
-            font-size: 82px;
-            line-height: 105%;
+    .hp-p6 {
+        background:$deepsea;
 
-            @include respond(phone) {
-                font-size: 38px;
+        .container {
+            .columns {
+                align-items: flex-start;
+
+                .hp-faqs {
+                    .accordion-container {
+                        width: 100%;
+                        border-bottom: 2px solid $teal;
+                    }
+                }
+            }
+        }
+    }
+
+    .hp-p7 {
+        padding: 120px 0;
+        overflow-x:hidden;
+
+        &::after {
+            position: absolute;
+            content: "";
+            background: url(/wp-content/uploads/2026/03/Icon-chestnut.svg);
+            height: 100%;
+            width: 450px;
+            right: -50px;
+            top: 0;
+            opacity: 0.4;
+            background-size: 90%;
+            background-position: top -190px center;
+            background-repeat: no-repeat;
+        }
+    }
+
+    .hp-p9 {
+        background: #FAF7F2;
+        background: linear-gradient(0deg,rgba(250, 247, 242, 1) 0%, rgba(250, 247, 242, 1) 45%, rgba(255, 255, 255, 1) 45%);
+
+        .sticky {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 150px;
+
+            @include respond(tab-port) {
+                position: relative;
+                margin-bottom: 50px;
+                top: auto;
             }
         }
 
-        @include contact-block;
-
-        .main-contact {
-            width: 100%;
-            justify-content: center;
+        @include respond(tab-port) {
+            .spacer-90 {
+                height: 45px;
+            }
         }
 
-        span.icon-right-arrow {
-            color: $green;
-            margin-left: 10px;
-            vertical-align: middle;
-            font-weight: bold;
+        .top-curve {
+            padding: 0;
+            position: absolute;
+            bottom: 45%;
+            width: 100%;
+
+            svg {
+                max-height: 300px;
+                width: 100%;
+                margin: auto;
+                display: block;
+
+                .st10 { fill: $cream; }
+            }
+        }
+    }
+
+    .hp-p10 {        
+        background:$deepsea;
+
+        .container {
+            .columns {
+                align-items: center;
+
+                .column-50 {                    
+                    .spacer-line {
+                        display: block;
+                        width: 100%;
+                        border-top: 1px solid $teal;
+                        margin-bottom: 25px;
+                    }
+                }
+            }
         }
     }
 }

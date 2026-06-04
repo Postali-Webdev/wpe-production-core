@@ -25,6 +25,8 @@ get_header();?>
                         <?php $featImg = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );?>
                             <img src="<?php echo $featImg[0]; ?>" class="article-featured-image"  />
                             <div class="spacer-60"></div>
+                        <?php } else { ?>
+                            <img src="<?php echo $blogDefault; ?>" class="article-featured-image"  />
                         <?php } ?>
                     </div>
                     <?php the_content(); ?>

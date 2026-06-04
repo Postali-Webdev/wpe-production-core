@@ -5,29 +5,6 @@
  * @author Postali LLC
 */
 
-
-.btn {
-    background-color:$black;
-    color:$white;
-    text-align: center;
-    font-family: sans-serif;
-    font-size:24px;
-    line-height: 120%;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-    padding:10px 20px;
-    transition:$transition-speed linear;
-    @media screen and (max-width: $screen-sm) {
-        font-size:20px;
-    }
-    &:hover {
-        color:$white;
-        text-decoration: none;
-        background-color:darken($black,20%);
-    }
-}
-
 .sub-title-text {
     font-family: sans-serif;
     font-size:48px;

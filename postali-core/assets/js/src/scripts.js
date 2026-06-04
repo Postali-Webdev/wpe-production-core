@@ -78,11 +78,15 @@ jQuery( function ( $ ) {
 	});
 
     // script to make accordions function
-	$(".accordions").on("click", ".accordions_title", function() {
+	$(".accordions").click(function() {
         // will (slide) toggle the related panel.
-        $(this).toggleClass("active").next().slideToggle();
-        $(this).parent().toggleClass("active");
+        $(this).toggleClass("active");
+        $(this).find('.accordions_content').slideToggle();
+
     });
+
+    $('.active > .accordions_content').css('display', 'block');
+
 
 	//keeps menu expanded so user can tab through sub-menu, then closes menu after user tabs away from last child
 	$(document).ready(function() {

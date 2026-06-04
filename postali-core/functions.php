@@ -7,10 +7,11 @@
  */
 	require_once dirname( __FILE__ ) . '/includes/admin.php';
 	require_once dirname( __FILE__ ) . '/includes/utility.php';
-    if(get_field('include_results','options') == 'yes') {
+
+    if(get_field('include_results','options')) {
 	    require_once dirname( __FILE__ ) . '/includes/case-results-cpt.php'; // Custom Post Type Case Results
     };
-    if(get_field('include_testiimonials','options') == 'yes') {
+    if(get_field('include_testimonials','options')) {
 	    require_once dirname( __FILE__ ) . '/includes/testimonials-cpt.php'; // Custom Post Type Testimonials
     }
 
@@ -25,7 +26,7 @@
 		wp_enqueue_style( 'child-styles', get_stylesheet_directory_uri() . '/style.css' ); // Enqueue Child theme style sheet (theme info)
 		wp_enqueue_style( 'styles', get_stylesheet_directory_uri() . '/assets/css/styles.css'); // Enqueue child theme styles.css
 		
-		wp_register_style( 'icomoon', 'https://d1azc1qln24ryf.cloudfront.net/152819/PostaliTier1/style-cf.css?l7x1b4', array() );
+		wp_register_style( 'icomoon', 'https://cdn.icomoon.io/152819/PostaliCrest/style.css?nolj2', array() );
 		wp_enqueue_style('icomoon');
 
 		// Compiled .js using Grunt.js
@@ -33,8 +34,6 @@
 		wp_enqueue_script('custom-scripts');
         wp_register_script('search-scripts', get_stylesheet_directory_uri() . '/assets/js/search.min.js',array('jquery'), null, true); 
 		wp_enqueue_script('search-scripts');
-        wp_register_script('fitvids-scripts', get_stylesheet_directory_uri() . '/assets/js/fitvids.min.js',array('jquery'), null, true); 
-		wp_enqueue_script('fitvids-scripts');
 
         //slick
         wp_register_script('slick-scripts', get_stylesheet_directory_uri() . '/assets/js/slick.min.js',array('jquery'), null, true); 
@@ -56,7 +55,7 @@
 			array(
 				'header-nav' => __( 'Header Navigation', 'postali' ),
 				'footer-nav' => __( 'Footer Navigation', 'postali' ),
-                'practice-areas-nav' => __( 'Pratice Areas Navigation', 'postali' ),
+                'sidebar_menu' => __( 'Sidebar Menu', 'postali' ),
 			)
 		);
 	}
@@ -87,12 +86,12 @@
 			'redirect'      => false
 		));
 
-		acf_add_options_page(array(
-			'page_title'    => 'CORE Site Setup',
-			'menu_title'    => 'CORE Site Setup',
-			'menu_slug'     => 'core-site-setup',
+        acf_add_options_page(array(
+			'page_title'    => 'Site Customizations',
+			'menu_title'    => 'Site Customizations',
+			'menu_slug'     => 'site-customizations',
 			'capability'    => 'edit_posts',
-			'icon_url'      => 'dashicons-admin-customizer', // Add this line and replace the second inverted commas with class of the icon you like
+			'icon_url'      => 'dashicons-edit', // Add this line and replace the second inverted commas with class of the icon you like
 			'redirect'      => false
 		));
 
@@ -220,33 +219,6 @@
 	<?php
 	}
 
-	// Add Search Bar to Top Nav
-	function mainmenu_navsearch($items, $args) {
-		if ($args->theme_location == 'header-nav') {
-			ob_start();
-			?>
-			<li class="menu-item menu-item-search search-holder">
-				<form class="navbar-form-search" role="search" method="get" action="/">
-					<div class="search-form-container hdn" id="search-input-container">
-						<div class="search-input-group">
-							<div class="form-group">
-							<input type="text" name="s" placeholder="Search for..." id="search-input-5cab7fd94d469" value="" class="form-control">
-							</div>
-						</div>
-					</div>
-					<button type="submit" class="btn btn-search" id="search-button"><span class="icon-search-icon" aria-hidden="true"></span></button>
-				</form>	
-			</li>
-
-			<?php
-			$new_items = ob_get_clean();
-
-			$items .= $new_items;
-		}
-		return $items;
-	}
-	add_filter('wp_nav_menu_items', 'mainmenu_navsearch', 10, 2);
-
 	// Add template column to page list in wp-admin
 	function page_column_views( $defaults ) {
 		$defaults['page-layout'] = __('Template');
@@ -268,5 +240,32 @@
 		}
 	}
 	add_action( 'manage_pages_custom_column', 'page_custom_column_views', 5, 2 );
+
+    // Add Search Bar to Top Nav
+	function mainmenu_navsearch($items, $args) {
+		if ($args->theme_location == 'header-nav') {
+			ob_start();
+			?>
+			<li class="menu-item menu-item-search search-holder">
+				<form class="navbar-form-search" role="search" method="get" action="/">
+					<div class="search-form-container hdn" id="search-input-container">
+						<div class="search-input-group">
+							<div class="form-group">
+							<input type="text" name="s" placeholder="Search for..." id="search-input-5cab7fd94d469" value="" class="form-control">
+							</div>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-search" id="search-button"><span class="icon-crest-search-icon" aria-hidden="true"></span></button>
+				</form>	
+			</li>
+
+			<?php
+			$new_items = ob_get_clean();
+
+			$items .= $new_items;
+		}
+		return $items;
+	}
+	add_filter('wp_nav_menu_items', 'mainmenu_navsearch', 10, 2);
 
 ?>

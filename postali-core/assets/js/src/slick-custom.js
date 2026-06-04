@@ -44,5 +44,32 @@ jQuery( function ( $ ) {
             }
         ]
 	});
+
+    if ($(window).width() < 601) {
+
+    $('.photo-grid').slick({
+		dots: false,
+        centerMode: true,
+		infinite: true,
+        arrows:false,
+		fade: false,
+		autoplay: true,
+  		autoplaySpeed: 3000,
+  		speed: 800,
+		slidesToShow: 10,
+		slidesToScroll: 1,
+    	swipeToSlide: true,
+		cssEase: 'ease-in-out',
+        responsive: [
+            {
+              breakpoint: 601,
+              settings: {
+                    slidesToShow: 1,
+                }
+            }
+        ]
+	});
+
+}
 	
 });

@@ -13,14 +13,18 @@ get_header();?>
     <section class="main-content">
         <div class="container">
             <div class="columns">
-                <div class="column-66">
+                <div class="column-50">
                     <?php the_content(); ?>
+                    <p class="large">
+                        <span class="icon-Phone"></span><strong><a href="tel:<?php the_field('global_phone','options'); ?>" title="Call Today"><?php the_field('global_phone','options'); ?></strong></a>
+                        <span class="spacer-15"></span>
+                        <span class="icon-email"></span><strong><a href="mailto:<?php the_field('global_email','options'); ?>" title="Email Today"><?php the_field('global_email','options'); ?></strong></a>
+                    </p>
+
+                    <p class="xsm global-disclaimer"><em><?php the_field('global_disclaimer','options'); ?></em></p>
                 </div>
-                <div class="column-33 sidebar-block block">
-                    <p><strong>Our Office</strong></p>
-                    <p><?php the_field('address','options'); ?></p>
-                    <p class="sidebar-more"><a href="<?php the_field('driving_directions','options'); ?>" title="Get Directions" target="blank">Get Directions</a> <span class="icon-tick-down"></span></p>
-                    <?php the_field('map_embed','options'); ?>
+                <div class="column-50 contact-form block">
+                    <?php echo do_shortcode( get_field('contact_form_shortcode') ); ?>
                 </div>
             </div>
         </div>

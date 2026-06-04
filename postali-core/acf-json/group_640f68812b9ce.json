@@ -138,6 +138,13 @@
                 "operator": "==",
                 "value": "page-practice-parent.php"
             }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-about.php"
+            }
         ]
     ],
     "menu_order": 0,
@@ -149,5 +156,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1716554187
+    "display_title": "",
+    "modified": 1773166575
 }

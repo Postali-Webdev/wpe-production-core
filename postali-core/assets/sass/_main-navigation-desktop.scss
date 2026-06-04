@@ -80,6 +80,10 @@ header {
                             }
                         }
 
+                        &.menu-item-search {
+                            display: none;
+                        }
+
                         // active menu states for current page / current parent
                         &.current-menu-parent,
                         &.current-menu-item,
@@ -144,9 +148,17 @@ header {
                             }
                             
                             a {
-                                padding: 12px 40px !important;
+                                padding: 15px 40px 13px !important;
                                 transition: 0.2s linear;
-                                border-radius: 10px;
+                                color:$slate;
+                                background: $yellow;
+                                border-radius: 5px;
+                                line-height: 1;
+
+                                &:hover {
+                                    background:$gold;
+                                    color: #1D2F36;
+                                }
 
                                 @include respond(desktop) {
                                     padding:12px 35px !important;
@@ -165,8 +177,9 @@ header {
                             display: flex;
                             align-items: center;
                             z-index: 1;
-                            font-weight: bold;
-                            color:$white;
+                            color:$teal;
+                            font-family: $nunito;
+                            text-transform: uppercase;
 
                             @include respond(desktop) {
                                 padding:40px 11px;

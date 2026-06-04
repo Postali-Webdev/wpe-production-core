@@ -1,4 +1,4 @@
-@include respond(tab-land) {
+@include respond(tab-port) {
 
     @keyframes slideover {
         0% { left:100%; margin-left: 100%; }
@@ -46,7 +46,7 @@
                         flex-wrap: wrap;
                         padding: 0 !important;
                         top: 96px;
-                        background: gray;
+                        background: $cream;
                         margin:0;
                         position: absolute;
                         left: 100%;
@@ -88,9 +88,8 @@
                                 content: "";
                                 left: 30px;
                                 width: calc(100% - 60px);
-                                background: white;
+                                background: $gray;
                                 height: 1px;
-                                opacity: .2;
                             }
 
                             &:nth-child(1) {
@@ -142,14 +141,14 @@
                             }
 
                             &.nav-contact {
-                                margin:0 12px 0 30px;
+                                margin:20px 12px 20px 30px;
                                 
                                 a {
                                     width: calc(100% - 20px) !important;
                                     display: flex;
                                     justify-content: center;
                                     box-sizing: border-box;
-                                    border-radius: 0;
+                                    border-radius: 10px;
                                 }
                             }
 
@@ -221,7 +220,7 @@
                             &.current-menu-item,
                             &.current-page-ancestor {
                                 a {
-                                    color:$white;
+                                    color:$slate;
                                     background:none;
 
                                     &:before {
@@ -349,9 +348,9 @@
             
                             .line {
                                 display: block;
-                                background:$white;
+                                background:$teal;
                                 width: 40px;
-                                height: 2px;
+                                height: 3px;
                                 position: absolute;
                                 left: 0;
                                 transition: all 0.4s;
@@ -364,16 +363,10 @@
             
                                     &.line-2 {
                                         top: 50%;
-                                        width:80%;
-                                        right:0;
-                                        left:auto;
                                     }
             
                                     &.line-3 {
                                         top: 100%;
-                                        width:60%;
-                                        right:0;
-                                        left:auto;
                                     }
                                 }
             
